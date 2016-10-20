@@ -9,6 +9,17 @@ class ApplicationController < ActionController::Base
   		redirect_to signin_url
   	end
   end
+
+  def admin_user
+    redirect_to(root_url) unless current_user.admin?
+  end
+
+  def not_signed_in_user
+    if signed_in?
+      flash[:error] = "You are already signed up!"
+      redirect_to root_url
+    end
+  end
 end
 
 
