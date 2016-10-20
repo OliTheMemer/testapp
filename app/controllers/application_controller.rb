@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 
   def not_signed_in_user
     if signed_in?
-      flash[:error] = "You are already signed up!"
+      flash[:error] = "You are already signed in!"
       redirect_to root_url
     end
   end
