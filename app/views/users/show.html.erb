@@ -8,22 +8,23 @@
 				<%= gravatar_for @user %>
 				<span><%= @user.name %>
 				<div class="row">
+					<p>Followers 55</p>
 					<div class="col-sm-6">
 					</div>
+					<p>Followers 55</p>
 					<div class="col-sm-6">
 					</div>
 				</div>
 			</div>
 			<div class="col-sm-8">
 				<h1>Microposts</h1>
-				<ul>
+				<ul style= "list-style: none">
+
 					<% @user.microposts.each do |micropost| %>
 						<li>
 							<p><%= micropost.content %></p>
 							<p><%= micropost.created_at %></p>
-
 						</li>
-
 					<% end %>
 				</ul>
 			</div>
