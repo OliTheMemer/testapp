@@ -6,24 +6,25 @@
 		<div class="row">
 			<div class="col-sm-4">
 				<%= gravatar_for @user %>
-				<span><%= @user.name %>
-				<div class="row">
-					<p>Followers 55</p>
-					<div class="col-sm-6">
+				<b><span><%= @user.name %></span>
+				<div class="row">					
+					<br><div class="col-sm-6">
+						<p>Following 50</p>
 					</div>
-					<p>Followers 55</p>
 					<div class="col-sm-6">
+						<p>Followers 70</b></p>
 					</div>
 				</div>
 			</div>
 			<div class="col-sm-8">
-				<h1>Microposts</h1>
-				<ul style= "list-style: none">
-
+				<h1>Microposts (<%= @user.microposts.count %>)</h1>
+				<hr>
+				<ul class="microposts">
 					<% @user.microposts.each do |micropost| %>
 						<li>
-							<p><%= micropost.content %></p>
-							<p><%= micropost.created_at %></p>
+							<h4><%= micropost.content %></h4>
+							<i><%= time_ago_in_words(micropost.created_at) %></i>
+							<hr>
 						</li>
 					<% end %>
 				</ul>
