@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
   resources :microposts
   resources :users
-  get '/signup', to: 'users#new'
+  resources :sessions, only: [:new, :create, :destroy]
 
+
+  get '/signup', to: 'users#new'
+  
+  get '/signin', to: 'sessions#new'
+  
+  delete '/signout', to: 'sessions#destroy'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
