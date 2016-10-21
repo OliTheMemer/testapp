@@ -6,6 +6,7 @@
 				<%= render "users/profile" %>
 			</div>
 			<div class="col-sm-8">
+				<%= render "follow_form" if signed_in?%>
 				<%= render "users/feed" %>
 			</div>
 		</div>

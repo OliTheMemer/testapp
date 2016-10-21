@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :not_signed_in_user, only: [:new, :create]
   before_action :correct_user, only:[:edit, :update]
   before_action :admin_user, only:[:destroy]
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :following, :followers]
 
   # GET /users
   # GET /users.json
@@ -56,6 +56,19 @@ class UsersController < ApplicationController
     flash[:success] = 'User was successfully destroyed.'
     redirect_to users_url
   end
+
+  def following
+      @title = "Following"
+      @users = @user.followed_users.paginate(page: params[:page])
+      render "show_follow"
+  end
+
+  def followers
+      @title = "Followers"
+      @users = @user.followers.paginate(page: params[:page])
+      render "show_follow"
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

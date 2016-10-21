@@ -6,7 +6,6 @@
   <h1 class="text-center">Sign up to Dropdown!</h1>
     <%= form_for(@user) do |f| %>
       <%= render "shared/errors", resource: @user %>
-
       <div class="form-group">
         <%= f.label :name %><br>
         <%= f.text_field :name, class: "form-control" %>
@@ -15,7 +14,6 @@
         <%= f.label :email %><br>
         <%= f.text_field :email, class: "form-control" %>
       </div>
-
       <div class="form-group">
         <%= f.label :password %><br>
         <%= f.password_field :password, class: "form-control" %>

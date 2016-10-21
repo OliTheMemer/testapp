@@ -52,3 +52,12 @@ h4.text {
 	font-color: lightgrey;
 	font-size: 16px;
 }
+
+
+.user_avatars {
+	margin-top: 10px;
+
+	.gravatar {
+		margin: 2px 2px;
+	}
+}
