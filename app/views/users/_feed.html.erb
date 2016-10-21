@@ -1,0 +1,26 @@
+<% if @microposts.any? %>
+	<h1>Microposts (<%= @microposts.count %>)</h1>
+	<hr>
+	<ul class="microposts">
+		<% @microposts.each do |micropost| %>
+			<li>
+				<div class="row">
+					<div class="col-sm-1">
+						<%= gravatar_for @user %>
+					</div>
+					<div class="col-sm-11">
+						<%= link_to @user.name,(micropost.user)%>
+						<h4 class="text"><%= micropost.content %></h4>
+						<i class="timestamp"><%= time_ago_in_words(micropost.created_at) %></i>
+						<% if current_user?(micropost.user) %>
+							<%= link_to 'delete', micropost, method: :delete, data: { confirm: 'Are you sure?' } %>
+						<% end %>
+					</div>
+				</div>
+				<hr>
+			</li>
+		<% end %>
+	</ul>
+	<%= will_paginate @microposts %>
+<% else %>
+<% end %>
