@@ -13,4 +13,21 @@
 		</div>
 		<div class="col-sm-2"></div>
 	</div>
+
+<% else %>
+	<div class="row">
+		<div class="col-sm-2">
+		</div>
+		<div class="col-sm-8">
+		<div class="jumbotron">
+			<h1>Welcome to Dropdown!</h1>
+			<p>Forget Twitter, Think Dropdown!</p>
+			<p>To access the wonderful feature of Dropdown, please sign in or sign up for a new account!</p>
+			<p><%= link_to "Sign in", signin_path, class: "btn btn-lg btn-primary"%>
+			&nbsp;
+			<%= link_to "Sign up", signup_path, class: "btn btn-lg btn-success"%>
+			</p>
+		</div>
+		<div class="col-sm-2">
+		</div>
 <% end %>
